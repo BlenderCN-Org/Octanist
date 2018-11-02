@@ -17,8 +17,8 @@ Octanist is is a helper addon for the Octane render Blender plugin users to easi
 
 | Versions | README |
 | ------ | ------ |
-| v10.0.0 | (In Progress)  |
-| v2.0.0 | [Archived/Octanist 2/README.md](https://github.com/Landon-Dou/blender-octanerender-helper-addon_octanist/blob/master/Archived/Octanist_2/README.md) |
+| v10.0.0 | [Octanist 10/README.md](https://github.com/Landon-Dou/blender-octanerender-helper-addon_octanist/blob/master/Octanist%2010/README.md) |
+| v2.0.0 | [Archived/Octanist 2/README.md](https://github.com/Landon-Dou/blender-octanerender-helper-addon_octanist/blob/master/Archived/Octanist%202/README.md) |
 | v1.0.0 | N/A |
 
 # License
