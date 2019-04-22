@@ -1,22 +1,21 @@
 # Octanist
 
-Octanist is is a helper addon for the Octane render Blender plugin users to easily setup the scene for their art works powered by Octane Render
+Octanist is a tool designed for Octane Blender Edition to make designers or artists much easier to set up their projects, which contains an addon in Blender backend and a front end GUI application.
 
-[![Build Status](https://travis-ci.org/Landon-Dou/blender-octanerender-helper-addon_octanist.svg?branch=master)](https://travis-ci.org/Landon-Dou/blender-octanerender-helper-addon_octanist)
+## Features
+**v10.0.0 (In Progress)**
 
-### Features
-> v10.0.0 (In Progress)
-  - Assign materials, hdri, cameras, etc.
-  - Manipulate transformations of environment texture
-  - Change octane render settings in Blender
-  - Store materials locally
-  - Share materials via social network
-  - Project manager
+- Assign and store materials, hdri, cameras, etc.
+- Manage rendering jobs.
+- Manage and insert environment textures.
+- Change common Octane Blender Edition settings.
+- Share with others.
+- Manage projects.
 
-### System Environment
-> Windows, Mac OS X, Linux
+## System Environment
+> Windows, Mac OS X
 
-# Development
+## Development
 
 | Versions | README |
 | ------ | ------ |
@@ -24,5 +23,5 @@ Octanist is is a helper addon for the Octane render Blender plugin users to easi
 | v2.0.0 | [Archived/Octanist 2/README.md](https://github.com/Landon-Dou/blender-octanerender-helper-addon_octanist/blob/master/Archived/Octanist%202/README.md) |
 | v1.0.0 | N/A |
 
-# License
+## License
 GNU General Public License v3.0
