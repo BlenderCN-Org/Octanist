@@ -1,0 +1,27 @@
+{
+  "name": "octanist",
+  "version": "10.0.0",
+  "description": "Application for managing personal artwork projects and accessing extra power in Octane Blender Edition",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Landon-Dou/Octanist.git"
+  },
+  "keywords": [
+    "Octane",
+    "Blender",
+    "Addon"
+  ],
+  "author": "Landon Dou <landon.dou@outlook.com> (https://id0.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Landon-Dou/Octanist/issues"
+  },
+  "homepage": "https://github.com/Landon-Dou/Octanist#readme",
+  "devDependencies": {
+    "electron": "^4.1.4"
+  }
+}
