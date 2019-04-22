@@ -24,4 +24,9 @@ Octanist is a tool designed for Octane Blender Edition to make designers or arti
 | v1.0.0 | N/A |
 
 ## License
-GNU General Public License v3.0
+© Landon Dou
+
+Licensed under the [MIT License](Octanist 10/LICENSE).
+
+> Versions before v10 are under GNU General Public License v3.0. Locate the license in the specific project folder.
+
