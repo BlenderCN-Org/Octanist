@@ -1,7 +1,7 @@
 import bpy
 
 #region Rendering Jobs
-def render_sv():
+def render_s(sock):
     '''
     Render single frame with viewport display
     
@@ -9,34 +9,20 @@ def render_sv():
     ----
     When use_viewport is false, image renders in background.
     '''
+    sock.send(bytes('RENDER_INIT', 'utf-8'))
     bpy.ops.render.render(use_viewport=True, write_still=True) # Without use_viewport, render in background
+    sock.send(bytes('RENDER_COMPLETE', 'utf-8'))
 
-def render_av():
+def render_a(sock):
     '''
     Render full animation with viewport display
     '''
+    sock.send(bytes('RENDER_INIT', 'utf-8'))
     bpy.ops.render.render(animation=True, use_viewport=True, write_still=True)
-
-def render_sn():
-    '''
-    Render single frame without viewport display
-    
-    Tips
-    ----
-    When use_viewport is false, image renders in background.
-    '''
-    bpy.ops.render.render(use_viewport=False, write_still=True) # Without use_viewport, render in background
-
-def render_an():
-    '''
-    Render full animation without viewport display
-    '''
-    bpy.ops.render.render(animation=True, use_viewport=False, write_still=True)
+    sock.send(bytes('RENDER_COMPLETE', 'utf-8'))
 #endregion
 
 commands = {
-    'RENDER_SV': render_sv,
-    'RENDER_AV': render_av,
-    'RENDER_SN': render_sn,
-    'RENDER_AN': render_an,
+    'RENDER_S': render_s,
+    'RENDER_A': render_a
 }
