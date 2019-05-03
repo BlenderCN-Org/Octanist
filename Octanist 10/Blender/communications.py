@@ -3,7 +3,7 @@ import threading
 import socket
 
 TCP_IP = '127.0.0.1'
-TCP_PORT = 5200
+TCP_PORT = 5201
 BUFFER_SIZE = 1024
 SLEEP_RATE = 0.1
 SOCK = None
