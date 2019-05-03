@@ -1,8 +1,11 @@
+import os
+
 def launch():
     '''
     Launch the Octanist App located in the current directory
     '''
-    return None
+    octanist = os.path.dirname(os.path.realpath(__file__)) + 'Octanist.exe'
+    os.startfile(octanist)
 
 def start_render(animation=False):
     '''
