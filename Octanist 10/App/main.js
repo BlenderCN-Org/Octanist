@@ -1,18 +1,24 @@
 const { app, BrowserWindow, Menu, Tray } = require('electron')
 const server = require('./server')
 
+let win = null
+let lock = app.requestSingleInstanceLock()
+
 function createWindow() {
     // Start the server from module
     server.start()
 
     // Create the browser window.
-    let win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 480,
         height: 800,
         transparent: true,
         frame: false,
         resizable: false,
-        alwaysOnTop: true
+        alwaysOnTop: true,
+        webPreferences: {
+            nodeIntegration: true
+        }
     })
 
     // Change the default minimize behaviour
@@ -44,4 +50,15 @@ function createWindow() {
     win.loadURL('http://localhost:5200')
 }
 
-app.on('ready', createWindow)
+// Launch
+if (!lock) {
+    app.quit()
+} else {
+    app.on('second-instance', (event, cmd, wd) => {
+        if (win) {
+            win.show()
+            win.focus()
+        }
+    })
+    app.on('ready', createWindow)
+}
