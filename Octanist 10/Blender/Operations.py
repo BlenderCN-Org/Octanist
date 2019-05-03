@@ -1,5 +1,55 @@
 import os
+import bpy
+from bpy.app.handlers import persistent
+from datetime import datetime
 
+TIMER = None
+
+# Events
+def clear_render_event():
+    bpy.app.handlers.render_init.clear()
+    bpy.app.handlers.render_post.clear()
+    bpy.app.handlers.render_complete.clear()
+
+def handler_init_render(scene):
+    # Set timer
+    global TIMER
+    TIMER = datetime.now()
+    # Get dir of render ouput
+    path = bpy.context.scene.render.filepath
+    if(path=='/tmp\\'): 
+        path = 'C:\\tmp'
+    # Send response via socket
+    res = {
+        'type': 'msg',
+        'code': 'init_render',
+        'info': {
+            'output_path': path
+        }
+    }
+    sock.send(res)
+
+def handler_post_render(scene):
+    res = {
+        'type': 'msg',
+        'code': 'post_render',
+        'info': {
+            'time_elapsed': datetime.now() - TIMER
+        }
+    }
+    sock.send(res)
+
+def handler_complete_render(scene):
+    res = {
+        'type': 'msg',
+        'code': 'complete_render',
+        'info': {
+            'time_elapsed': datetime.now() - TIMER
+        }
+    }
+    sock.send(res)
+
+# Operations
 def launch():
     '''
     Launch the Octanist App located in the current directory
@@ -16,13 +66,18 @@ def start_render(animation=False):
     animation : bool
         Render animation or not
     '''
-    return None
+    # Clean events
+    clear_render_event()
 
-def cancel_render():
-    '''
-    Cancel the rendering progress
-    '''
-    return None
+    if(animation):
+        bpy.ops.render.render(animation=True, write_still=True)
+    else:
+        bpy.ops.render.render(write_still=True)
+    
+    # Register events
+    bpy.app.handlers.render_init.append(handler_init_render)
+    bpy.app.handlers.render_post.append(handler_post_render)
+    bpy.app.handlers.render_complete.append(handler_complete_render)
 
 def send_selected_info():
     '''
